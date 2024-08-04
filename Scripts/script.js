@@ -108,9 +108,10 @@ reset.addEventListener("click", function () {
   if (timerOn) {
     clearInterval(interval);
     toggleTimer(timerOn);
-    start.innerHTML = "Start";
+
   }
   timerStatus.innerHTML = "Timer is off";
+  start.innerHTML = "Start";
   hours.value = 0;
   minutes.value = 0;
   seconds.value = 0;
