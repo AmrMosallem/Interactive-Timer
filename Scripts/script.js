@@ -5,40 +5,31 @@ let timerStatus = document.getElementById("timer-status");
 let start = document.getElementById("start"),
   reset = document.getElementById("reset");
 
-function disableButtons() {
-  start.disabled = true;
-  reset.disabled = true;
-}
-
 function toggleTimer(boolean) {
   timerOn = !boolean;
   hours.disabled = timerOn;
   minutes.disabled = timerOn;
   seconds.disabled = timerOn;
   showBorders(timerOn);
+  timeUpBorder.style.animation = "";
 }
 
-let borders = document.querySelectorAll(".timer-container div");
+let border = document.querySelector(".timer-container .border");
+let timeUpBorder = document.querySelector(".timer-container .time-up");
 function showBorders(boolean) {
   if (boolean) {
-    borders.forEach((div) => {
-      div.style.animation =
-        "spin 4s linear infinite, appear 1s ease-in-out forwards";
-    });
+    border.style.animation =
+      "spin 4s linear infinite, appear 1s ease-in-out forwards";
   } else {
-    borders.forEach((div) => {
-      div.style.animation =
-        "spin 4s linear infinite, disappear 1s ease-in-out forwards";
-    });
+    border.style.animation =
+      "spin 4s linear infinite, disappear 1s ease-in-out forwards";
   }
 }
+
 function validate() {
-    if(seconds.value=="")
-        seconds.value=0;
-    if(minutes.value=="")
-        minutes.value=0;
-    if(hours.value=="")
-        hours.value=0;
+  if (seconds.value == "") seconds.value = 0;
+  if (minutes.value == "") minutes.value = 0;
+  if (hours.value == "") hours.value = 0;
   if (
     isNaN(parseInt(hours.value)) ||
     isNaN(parseInt(minutes.value)) ||
@@ -55,7 +46,7 @@ function validate() {
     seconds.value = parseInt(seconds.value) % 60;
   }
   if (minutes.value > 60) {
-    hours.value = parseInt(hours.value) +Math.floor(minutes.value / 60);
+    hours.value = parseInt(hours.value) + Math.floor(minutes.value / 60);
     minutes.value = parseInt(minutes.value) % 60;
   }
 
@@ -82,6 +73,7 @@ function countDown() {
     clearInterval(interval);
     start.innerHTML = "Start";
     toggleTimer(timerOn);
+    timeUpBorder.style.animation = "timeUp 2s ease forwards";
     timerStatus.innerHTML = "Time is up";
   }
 }
@@ -90,6 +82,7 @@ let interval = null,
   timerOn = false;
 
 start.addEventListener("click", function () {
+
   if (!timerOn && validate()) {
     toggleTimer(timerOn);
 
@@ -108,7 +101,6 @@ reset.addEventListener("click", function () {
   if (timerOn) {
     clearInterval(interval);
     toggleTimer(timerOn);
-
   }
   timerStatus.innerHTML = "Timer is off";
   start.innerHTML = "Start";

@@ -7,9 +7,8 @@ body {
   font-size: 18px;
   background-color: rgb(21, 19, 32);
   margin: 0;
-
 }
-.timer-container{
+.timer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,21 +53,21 @@ body {
   gap: 20px;
 }
 .buttons button {
-  font-size: 20px;  font-weight: bold;
+  font-size: 20px;
+  font-weight: bold;
   padding: 13px 5px;
   width: 120px;
   border-radius: 10px;
   background: none;
   color: rgb(185, 127, 233);
- border: 2px solid rgb(185, 127, 233); 
+  border: 2px solid rgb(185, 127, 233);
   cursor: pointer;
 
   transition: 0.3s;
 }
 .buttons button:hover {
-
   background: rgb(185, 127, 233);
-  color: rgb(35, 17, 78); 
+  color: rgb(35, 17, 78);
 }
 /* Additional Styles*/
 @property --angle {
@@ -77,9 +76,9 @@ body {
   inherits: false;
 }
 
-.timer-container div {
+.timer-container .border, .timer-container .blurred-border {
   --angle: 0deg;
-  content: "";
+
   position: absolute;
   width: 100%;
   height: 100%;
@@ -94,14 +93,30 @@ body {
     #3700ff,
     #ff00e1
   );
-  opacity: 0;
+
   padding: 3px;
   border-radius: inherit;
   z-index: -1;
+  opacity: 0;
 }
-.timer-container .before {
+.timer-container .blurred-border, .timer-container .blurred-time-up {
   filter: blur(10px);
+  animation: inherit;
 }
+.timer-container .time-up, .timer-container .blurred-time-up {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  background: limegreen;
+  padding: 3px;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+}
+
 @keyframes spin {
   from {
     --angle: 0deg;
@@ -126,4 +141,28 @@ body {
   to {
     opacity: 0;
   }
+}
+@keyframes timeUp {
+0%{
+  opacity: 0;
+}
+50%{
+  opacity: 1;}
+
+100%{
+  opacity: 0;
+}
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
 }

@@ -11,12 +11,12 @@
 
 <body>
     <main class="timer-container">
-        <section class="timer"> <input type="text" id="hours" value="0">
+        <section class="timer"> <input type="number" id="hours" value="0">
 
-            <input type="text" id="minutes" value="0">
+            <input type="number" id="minutes" value="0">
 
 
-            <input type="text" id="seconds" value="0"> <span>Hours</span>
+            <input type="number" id="seconds" value="0"> <span>Hours</span>
             <span>Minutes</span>
             <span>Seconds</span>
         </section>
@@ -25,8 +25,11 @@
             <button id="start">Start</button>
             <button id="reset">Reset</button>
         </section>
-        <div class="before"></div>
-        <div class="after"></div>
+        <div class="border">
+            <div class="blurred-border"></div>
+        </div>
+        <span class="time-up"> <span class="blurred-time-up"></span></span>
+
     </main>
     <script src="Scripts/script.js"></script>
 
