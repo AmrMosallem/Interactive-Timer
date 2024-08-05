@@ -69,12 +69,16 @@ function countDown() {
     hours.value--;
     minutes.value = 59;
     seconds.value = 59;
-  } else {
+  }
+  if (secondsRemaining == 0) {
     clearInterval(interval);
     start.innerHTML = "Start";
     toggleTimer(timerOn);
     timeUpBorder.style.animation = "timeUp 2s ease forwards";
-    timerStatus.innerHTML = "Time is up";
+    setTimeout(function () {
+      timerStatus.innerHTML = "Time is up";
+    },1000)
+
   }
 }
 
@@ -82,7 +86,6 @@ let interval = null,
   timerOn = false;
 
 start.addEventListener("click", function () {
-
   if (!timerOn && validate()) {
     toggleTimer(timerOn);
 
