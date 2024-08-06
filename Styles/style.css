@@ -4,7 +4,7 @@ body {
   align-items: center;
   height: 100dvh;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   background-color: rgb(21, 19, 32);
   margin: 0;
 }
@@ -19,7 +19,7 @@ body *::selection {
   background: rgb(31, 14, 68);
   color: rgb(153, 128, 255);
   gap: 20px;
-  padding: 30px;
+  padding: 30px 15px;
   border-radius: 10px;
   position: relative;
   box-shadow: inset 0 0 5px rgba(255, 255, 255,0.6);
@@ -32,13 +32,15 @@ body *::selection {
      fractional unit that means the column will take up 1 part of the 
      available space. */
   grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
-  column-gap: 35px;
+  text-align: center;
+
+  column-gap: 20px;
   /* color: rgb(41, 37, 71); */
   font-weight: bold;
+  font-size: 16px;
 }
 .timer input {
-  padding-left: 15px;
+ 
   width: 70px;
   height: 50px;
   text-align: center;
@@ -49,6 +51,7 @@ body *::selection {
   color: rgb(255, 193, 254);
   outline: none;
   font-weight: bold;
+  padding-left: 10px;
 }
 .timer input:disabled {
   cursor: default;
@@ -56,13 +59,13 @@ body *::selection {
 .buttons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 .buttons button {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  padding: 13px 5px;
-  width: 120px;
+  padding: 13px 0px;
+  width: 100px;
   border-radius: 10px;
   background: none;
   color: rgb(211, 157, 255);
@@ -167,7 +170,9 @@ body *::selection {
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   transition: 0.2s;
-  margin: 0;
+  margin: 0px;
+  width: 10px;
+  
 }
 
 /* Firefox */
