@@ -8,6 +8,10 @@ body {
   background-color: rgb(21, 19, 32);
   margin: 0;
 }
+body *::selection {
+  background-color: rgb(153, 128, 255);
+  color: rgb(35, 17, 78);
+}
 .timer-container {
   display: flex;
   flex-direction: column;
@@ -45,7 +49,7 @@ body {
   font-weight: bold;
 }
 .timer input:disabled {
-  cursor: not-allowed;
+  cursor: default;
 }
 .buttons {
   display: flex;
@@ -76,7 +80,8 @@ body {
   inherits: false;
 }
 
-.timer-container .border, .timer-container .blurred-border {
+.timer-container .border,
+.timer-container .blurred-border {
   --angle: 0deg;
 
   position: absolute;
@@ -90,7 +95,6 @@ body {
     from var(--angle),
     #ff00e1,
     #3700ff,
-    #3700ff,
     #ff00e1
   );
 
@@ -99,11 +103,13 @@ body {
   z-index: -1;
   opacity: 0;
 }
-.timer-container .blurred-border, .timer-container .blurred-time-up {
+.timer-container .blurred-border,
+.timer-container .blurred-time-up {
   filter: blur(10px);
   animation: inherit;
 }
-.timer-container .time-up, .timer-container .blurred-time-up {
+.timer-container .time-up,
+.timer-container .blurred-time-up {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -143,26 +149,26 @@ body {
   }
 }
 @keyframes timeUp {
-0%{
-  opacity: 0;
-}
-50%{
-  opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 
-100%{
-  opacity: 0;
+  100% {
+    opacity: 0;
+  }
 }
-}
-
 
 /* Chrome, Safari, Edge, Opera */
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  transition: 0.2s;
+  margin: 0;
 }
 
 /* Firefox */
 input[type="number"] {
-    -moz-appearance: textfield;
+  -moz-appearance: textfield;
 }

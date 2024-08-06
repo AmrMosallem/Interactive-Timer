@@ -77,8 +77,7 @@ function countDown() {
     timeUpBorder.style.animation = "timeUp 2s ease forwards";
     setTimeout(function () {
       timerStatus.innerHTML = "Time is up";
-    },1000)
-
+    }, 1000);
   }
 }
 
