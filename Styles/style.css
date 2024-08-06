@@ -16,12 +16,13 @@ body *::selection {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: rgb(35, 17, 78);
+  background: rgb(31, 14, 68);
   color: rgb(153, 128, 255);
   gap: 20px;
   padding: 30px;
   border-radius: 10px;
   position: relative;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255,0.6);
 }
 .timer {
   display: grid;
@@ -37,6 +38,7 @@ body *::selection {
   font-weight: bold;
 }
 .timer input {
+  padding-left: 15px;
   width: 70px;
   height: 50px;
   text-align: center;
@@ -63,14 +65,14 @@ body *::selection {
   width: 120px;
   border-radius: 10px;
   background: none;
-  color: rgb(185, 127, 233);
-  border: 2px solid rgb(185, 127, 233);
+  color: rgb(211, 157, 255);
+  border: 2px solid rgb(211, 157, 255);
   cursor: pointer;
 
   transition: 0.3s;
 }
 .buttons button:hover {
-  background: rgb(185, 127, 233);
+  background: rgb(211, 157, 255);
   color: rgb(35, 17, 78);
 }
 /* Additional Styles*/
