@@ -37,7 +37,12 @@ function validate() {
   ) {
     timerStatus.innerHTML = "Please enter numbers only";
     return false;
-  } else if (hours.value == 0 && minutes.value == 0 && seconds.value == 0) {
+  } else if (
+    (hours.value == 0 && minutes.value == 0 && seconds.value == 0) ||
+    hours.value < 0 ||
+    minutes.value < 0 ||
+    seconds.value < 0
+  ) {
     timerStatus.innerHTML = "Please enter values greater than 0";
     return false;
   }
