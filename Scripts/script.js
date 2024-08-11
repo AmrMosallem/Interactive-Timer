@@ -80,10 +80,20 @@ function countDown() {
     start.innerHTML = "Start";
     toggleTimer(timerOn);
     timeUpBorder.style.animation = "timeUp 2s ease forwards";
+    
     setTimeout(function () {
       timerStatus.innerHTML = "Time is up";
+      resetState();
     }, 1000);
+   
   }
+}
+
+function resetState(){
+  if(hours.value==0 && minutes.value==0 && seconds.value==0){
+    reset.classList.add('reset-inactive');
+  }
+  else reset.classList.remove('reset-inactive');
 }
 
 let interval = null,
@@ -114,4 +124,9 @@ reset.addEventListener("click", function () {
   hours.value = 0;
   minutes.value = 0;
   seconds.value = 0;
+  resetState();
 });
+
+hours.addEventListener("change", resetState);
+minutes.addEventListener("change", resetState);
+seconds.addEventListener("change", resetState);

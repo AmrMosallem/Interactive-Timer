@@ -22,7 +22,7 @@ body *::selection {
   padding: 30px 15px;
   border-radius: 10px;
   position: relative;
-  box-shadow: inset 0 0 5px rgba(255, 255, 255,0.6);
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.6);
 }
 .timer {
   display: grid;
@@ -40,7 +40,6 @@ body *::selection {
   font-size: 16px;
 }
 .timer input {
- 
   width: 70px;
   height: 50px;
   text-align: center;
@@ -71,8 +70,10 @@ body *::selection {
   color: rgb(211, 157, 255);
   border: 2px solid rgb(211, 157, 255);
   cursor: pointer;
-
   transition: 0.3s;
+}
+.reset-inactive {
+  opacity: 0;
 }
 .buttons button:hover {
   background: rgb(211, 157, 255);
@@ -172,7 +173,6 @@ input[type="number"]::-webkit-inner-spin-button {
   transition: 0.2s;
   margin: 0px;
   width: 10px;
-  
 }
 
 /* Firefox */
