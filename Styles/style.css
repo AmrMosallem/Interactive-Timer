@@ -74,6 +74,7 @@ body *::selection {
 }
 .reset-inactive {
   opacity: 0;
+  pointer-events: none;
 }
 .buttons button:hover {
   background: rgb(211, 157, 255);
